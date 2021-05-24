@@ -1,23 +1,15 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
-namespace KSISLab8 {
+namespace KSISLab8
+{
     public class Startup {
         public Startup(IConfiguration configuration) {
             Configuration = configuration;
@@ -49,7 +41,6 @@ namespace KSISLab8 {
                     using (FileStream fs = File.Create($"Content\\{context.GetRouteValue("file")}")) {
                         await context.Request.Body.CopyToAsync(fs);
                     }
-                    await context.Response.WriteAsync("OK");
                 });
 
             routeBuilder.MapGet("path/to/{file}",

@@ -8,7 +8,7 @@ put
 curl -d "TEXT" -X PUT -i http://localhost:64032/path/to/FILE
 
 delete
-curl -X DELETE http://localhost:64032/path/to/FILE
+curl -X DELETE -i http://localhost:64032/path/to/FILE
 
 api files
 curl http://localhost:64032/api/files
